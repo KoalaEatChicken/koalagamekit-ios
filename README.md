@@ -1,13 +1,10 @@
 # koalagamekit-ios #
 
-[考拉游戏平台sdk服务端接入文档](#)
+sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务端接入文档](./docs/考拉游戏平台sdk服务端接入文档 v1.0)
 
 > 本文档力求简洁明了。接入者所需要的所有代码及说明，在下面的文档中都有详尽介绍。
 
 
-## 1. 工程配置 ##
-
-### 1.1 引入KoalaGameKit
 
 
 ## 1. 工程配置
@@ -360,8 +357,8 @@ dyld: Library not loaded: @rpath/KoalaGameKit.framework/KoalaGameKit
 
 
 
-[sdk_list]:./koala_sdk_imgs/sdk_list.png	"文件清单"
-[impot_tips]:./koala_sdk_imgs/impot_tips.png	"引入sdk文件提示"
-[bin_import_tip1]:./koala_sdk_imgs/bin_import_tip1.png	"项目中引入提示1"
-[bin_import_tip2]:./koala_sdk_imgs/bin_import_tip2.png	"项目中引入提示2"
-[bin_import_tip3]:./koala_sdk_imgs/bin_import_tip3.png	"项目中引入提示3"
+[sdk_list]:./docs/doc_res/sdk_list.png	"文件清单"
+[impot_tips]:./docs/doc_res/impot_tips.png	"引入sdk文件提示"
+[bin_import_tip1]:./docs/doc_res/bin_import_tip1.png	"项目中引入提示1"
+[bin_import_tip2]:./docs/doc_res/bin_import_tip2.png	"项目中引入提示2"
+[bin_import_tip3]:./docs/doc_res/bin_import_tip3.png	"项目中引入提示3"
