@@ -51,6 +51,9 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
     <key>NSAllowsArbitraryLoads</key>
     <true/>
 </dict>
+<!--  这里要使用到保存到相册的权限  -->
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>App要使用你的相册权限~</string>
 ```
 
 ### 1.3 其他说明
