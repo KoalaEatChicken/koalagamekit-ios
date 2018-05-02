@@ -2,6 +2,9 @@
 
 sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务端接入文档](./docs/考拉游戏平台sdk服务端接入文档%20v1.0.md)
 
+
+# 考拉游戏平台SDK接入文档【iOS端】v2.0
+
 > 本文档力求简洁明了。接入者所需要的所有代码及说明，在下面的文档中都有详尽介绍。
 
 
@@ -48,6 +51,9 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
     <key>NSAllowsArbitraryLoads</key>
     <true/>
 </dict>
+<!--  这里要使用到保存到相册的权限  -->
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>App要使用你的相册权限~</string>
 ```
 
 ### 1.3 其他说明
