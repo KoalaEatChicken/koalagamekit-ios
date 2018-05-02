@@ -101,17 +101,26 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 
 + 初始化需要一个配置模型，需要cp填写以下参数。
 
-  > `pkver`字符串的说明：
+  > `pkver`参数的说明：
   >
-  > 如无特殊需求，可以不用设置（sdk已经做了处理）；
+  > 如无特殊需求，可以不用设置（`sdk`已经做了处理）；
   >
-  > 使用下面的说明给pkver赋值的话，会覆盖sdk默认的设置。
+  > `sdk`的默认处理是：`channel`_版本号_`build`号；
+  >
+  > 如`qzsg_102_11`(全站三国，1.0.2版本，build是11或者1.1)；
   >
   > ​
   >
-  >  游戏的版本号字符串（去掉小数点）
+  > 如需自定义的话，可以参考下面的生成规则： 
+  >
+  > 游戏的版本号字符串（去掉小数点）
+  >
   >  1、相同`channel`情况下，需要保证唯一性的一个字符串（需要去掉小数点）；
   >  2、建议生成规则：游戏版本号去掉小数点（出包时的版本号，去掉小数点）；
+  >
+  > ​
+  >
+  > Tips: 使用上面建议的生成规则给`pkver`赋值的话，会覆盖`pkver`的默认值。
 
 ```objective-c
 
@@ -122,7 +131,7 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 @property(copy, nonatomic) NSString *_Nonnull channel;
 
 /** 
-	可以为空
+	可以为空(sdk会赋默认值)
  0、游戏的版本号字符串（去掉小数点）
  1、相同ver情况下，保证唯一性的一个字符串；
  2、建议生成规则：游戏版本号去掉小数点（出包时修改后的版本号，去掉小数点）；
@@ -197,9 +206,55 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 
 
 
-### 2.3 登出
+### 2.3 上传用户扩展信息
 
 #### 2.3.1 直接上代码
+
+```objective-c
+KKRole *role = [KKRole new];
+role.serverid = @"<#区服id#>";
+role.servername = @"<#区服名称#>";
+role.roleid = @"<#角色id#>";
+role.rolename = @"<#角色名称#>";
+role.rolelevel = @"<#角色等级#>";
+[Koala kgk_postRoleInfoWithModel:role completionHandler:^(KKResult * _Nonnull result) {
+
+    NSLog(@"角色上报结果：%@", result);
+    if (result.isSucc) {
+            
+            NSLog(@"角色上报完成");
+        }
+        else {
+            
+            NSLog(@"角色上报失败：%@", result.msg);
+        }
+}];
+```
+
+#### 2.2.2  角色模型
+
+```objective-c
+/** 区服id */
+@property(nonatomic, copy) NSString *serverid;
+
+/** 区服名称 */
+@property(nonatomic, copy) NSString *servername;
+
+/** 角色ID */
+@property(nonatomic, copy) NSString *roleid;
+
+/** 角色名称 */
+@property(nonatomic, copy) NSString *rolename;
+
+/** 角色等级 */
+@property(nonatomic, copy) NSString *rolelevel;
+```
+
+
+
+### 2.4 登出
+
+#### 2.4.1 直接上代码
 
 + 注册登出的通知
 
@@ -229,7 +284,7 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 
   ​
 
-#### 2.3.2 特殊说明
+#### 2.4.2 特殊说明
 
 + CP应该在这里处理游戏账号的退出等操作。
 
@@ -237,9 +292,9 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 
 
 
-### 2.4 支付
+### 2.5 支付
 
-#### 2.4.1 直接上代码
+#### 2.5.1 直接上代码
 
 ```objective-c
 KKOrder *order = [KKOrder new];
@@ -279,7 +334,7 @@ order.rolelevel = @"<#角色等级#>";
 }];
 ```
 
-#### 2.4.2 订单模型
+#### 2.5.2 订单模型
 
 ```objective-c
 /** 商品名称  */
@@ -307,7 +362,7 @@ order.rolelevel = @"<#角色等级#>";
 @property(nonatomic, copy) NSString *rolelevel;
 ```
 
-#### 2.4.3 特殊说明
+#### 2.5.3 特殊说明
 
 + 支付结果：请以服务器的回调为准。
 + 支付分为：内购和第三方支付；如果cp方需要测试不同的支付方式，请联系我方相关人员切换。
