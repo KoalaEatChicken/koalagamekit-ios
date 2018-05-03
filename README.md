@@ -375,7 +375,40 @@ order.rolelevel = @"<#角色等级#>";
 + 小说明：由于某些原因（你懂的），所以，sdk里一些关键词会做回避，如注释里面的"支付"会以“制服”代替，望知悉。
 
 
+### 2.6 上报统计角色信息
 
+#### 2.6.1 直接上代码
+```objective-c
+    KKRole *role = [KKRole new];
+    role.serverid = @"游戏区服ID";
+    role.servername = @"游戏区服名称";
+    role.roleid = @"游戏角色id";
+    role.rolename = @"游戏角色名称";
+    role.rolelevel = @"游戏角色等级";
+    [Koala kgk_postRoleInfoWithModel:role completionHandler:^(KKResult * _Nonnull result) {
+        
+        NSLog(@"角色上报结果：%@", result);
+    }];
+```
+
+#### 2.6.2 游戏角色统计模型
+
+```objective-c
+/** 区服id */
+@property(nonatomic, copy) NSString *serverid;
+
+/** 区服名称 */
+@property(nonatomic, copy) NSString *servername;
+
+/** 角色ID */
+@property(nonatomic, copy) NSString *roleid;
+
+/** 角色名称 */
+@property(nonatomic, copy) NSString *rolename;
+
+/** 角色等级 */
+@property(nonatomic, copy) NSString *rolelevel;
+```
 
 
 ## 3. FAQ
