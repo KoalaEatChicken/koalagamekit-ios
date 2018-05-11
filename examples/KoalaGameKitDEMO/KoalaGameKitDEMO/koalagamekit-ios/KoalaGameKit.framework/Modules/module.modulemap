@@ -1,0 +1,6 @@
+framework module KoalaGameKit {
+  umbrella header "KoalaGameKit.h"
+
+  export *
+  module * { export * }
+}

@@ -64,9 +64,17 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
     <key>NSAllowsArbitraryLoads</key>
     <true/>
 </dict>
-<!--  这里要使用到保存到相册的权限  -->
+<!--  这里要使用到保存到相册的权限(描述文字可以自由发挥哦～)  -->
 <key>NSPhotoLibraryAddUsageDescription</key>
-<string>App要使用你的相册权限~</string>
+<string>游戏要在你的相册里面保存这个截屏哦～</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>游戏要在你的相册里面保存这个截屏哦～</string>
+
+<!--  客服qq要跳转到qq客户端的白名单  -->
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>mqq</string>
+</array>
 ```
 
 ### 1.3 其他说明
@@ -124,11 +132,11 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
   >
   > 如无特殊需求，可以不用设置（`sdk`已经做了处理）；
   >
-  > `sdk`的默认处理是：`channel`_版本号_`build`号；
+  > `sdk`的默认处理是：`channel`+ “_” + 版本号(去掉小数点) + "_" + `build`号(去掉小数点)；
   >
   > 如`qzsg_102_11`(全站三国，1.0.2版本，build是11或者1.1)；
   >
-  > ​
+  > 
   >
   > 如需自定义的话，可以参考下面的生成规则： 
   >
