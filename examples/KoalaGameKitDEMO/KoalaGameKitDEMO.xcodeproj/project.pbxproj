@@ -16,10 +16,9 @@
 		B7BC02FD20A5852700FC7FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7BC02FC20A5852700FC7FF6 /* Assets.xcassets */; };
 		B7BC030020A5852700FC7FF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7BC02FE20A5852700FC7FF6 /* LaunchScreen.storyboard */; };
 		B7BC030320A5852800FC7FF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B7BC030220A5852800FC7FF6 /* main.m */; };
-		B7BC032920A5A86300FC7FF6 /* Koala.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B7BC032720A5A86200FC7FF6 /* Koala.bundle */; };
-		B7BC032A20A5A86300FC7FF6 /* KoalaGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7BC032820A5A86200FC7FF6 /* KoalaGameKit.framework */; };
-		B7BC032B20A5A87F00FC7FF6 /* KoalaGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7BC032820A5A86200FC7FF6 /* KoalaGameKit.framework */; };
-		B7BC032C20A5A87F00FC7FF6 /* KoalaGameKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7BC032820A5A86200FC7FF6 /* KoalaGameKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B7E5651F20AD843A002F3611 /* Koala.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B7E5651D20AD843A002F3611 /* Koala.bundle */; };
+		B7E5652020AD843A002F3611 /* KoalaGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E5651E20AD843A002F3611 /* KoalaGameKit.framework */; };
+		B7E5652220AD849A002F3611 /* KoalaGameKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7E5651E20AD843A002F3611 /* KoalaGameKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B7BC032C20A5A87F00FC7FF6 /* KoalaGameKit.framework in Embed Frameworks */,
+				B7E5652220AD849A002F3611 /* KoalaGameKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,8 +50,8 @@
 		B7BC02FF20A5852700FC7FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7BC030120A5852800FC7FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7BC030220A5852800FC7FF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B7BC032720A5A86200FC7FF6 /* Koala.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Koala.bundle; sourceTree = "<group>"; };
-		B7BC032820A5A86200FC7FF6 /* KoalaGameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KoalaGameKit.framework; sourceTree = "<group>"; };
+		B7E5651D20AD843A002F3611 /* Koala.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Koala.bundle; sourceTree = "<group>"; };
+		B7E5651E20AD843A002F3611 /* KoalaGameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KoalaGameKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7BC032B20A5A87F00FC7FF6 /* KoalaGameKit.framework in Frameworks */,
-				B7BC032A20A5A86300FC7FF6 /* KoalaGameKit.framework in Frameworks */,
+				B7E5652020AD843A002F3611 /* KoalaGameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +85,7 @@
 		B7BC02EB20A5852500FC7FF6 /* KoalaGameKitDEMO */ = {
 			isa = PBXGroup;
 			children = (
-				B7BC032620A5A86200FC7FF6 /* koalagamekit-ios */,
+				B7E5651C20AD843A002F3611 /* koalagamekit-2-0-3 */,
 				B7BC02EC20A5852500FC7FF6 /* AppDelegate.h */,
 				B7BC02ED20A5852500FC7FF6 /* AppDelegate.m */,
 				B7BC02EF20A5852500FC7FF6 /* GameScene.sks */,
@@ -105,13 +103,14 @@
 			path = KoalaGameKitDEMO;
 			sourceTree = "<group>";
 		};
-		B7BC032620A5A86200FC7FF6 /* koalagamekit-ios */ = {
+		B7E5651C20AD843A002F3611 /* koalagamekit-2-0-3 */ = {
 			isa = PBXGroup;
 			children = (
-				B7BC032720A5A86200FC7FF6 /* Koala.bundle */,
-				B7BC032820A5A86200FC7FF6 /* KoalaGameKit.framework */,
+				B7E5651D20AD843A002F3611 /* Koala.bundle */,
+				B7E5651E20AD843A002F3611 /* KoalaGameKit.framework */,
 			);
-			path = "koalagamekit-ios";
+			name = "koalagamekit-2-0-3";
+			path = "../../../koalagamekit-ios/koalagamekit-2-0-3";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +175,7 @@
 				B7BC02F020A5852500FC7FF6 /* GameScene.sks in Resources */,
 				B7BC02FD20A5852700FC7FF6 /* Assets.xcassets in Resources */,
 				B7BC030020A5852700FC7FF6 /* LaunchScreen.storyboard in Resources */,
-				B7BC032920A5A86300FC7FF6 /* Koala.bundle in Resources */,
+				B7E5651F20AD843A002F3611 /* Koala.bundle in Resources */,
 				B7BC02F220A5852500FC7FF6 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,7 +334,7 @@
 				DEVELOPMENT_TEAM = CH78CKY35H;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/KoalaGameKitDEMO/koalagamekit-ios",
+					"$(PROJECT_DIR)/KoalaGameKitDEMO/koalagamekit-2-0-3",
 				);
 				INFOPLIST_FILE = KoalaGameKitDEMO/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -359,7 +358,7 @@
 				DEVELOPMENT_TEAM = CH78CKY35H;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/KoalaGameKitDEMO/koalagamekit-ios",
+					"$(PROJECT_DIR)/KoalaGameKitDEMO/koalagamekit-2-0-3",
 				);
 				INFOPLIST_FILE = KoalaGameKitDEMO/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
