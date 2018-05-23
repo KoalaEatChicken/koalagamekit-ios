@@ -111,7 +111,7 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
  
  @param completeHandler 初始化的回调
  */
-[Koala kk_initGameKitWithCompletionHandler:^(KKResult *result) {
+[Koala kgk_initGameKitWithCompletionHandler:^(KKResult *result) {
 
     if (result.result.boolValue) {
 
@@ -192,7 +192,7 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
  @param isRememberFloatBallLocation 是否记住悬浮球的位置（用户最后一次拖动到的位置）
  @param completeHandler 登录的回调
  */
-[Koala kk_loginWithViewController:<#ur game vc#> isAllowUserAutologin:<#yes:可以自动登录；no:不允许自动登录#> floatBallInitStyle:<#FloatBallStyle#> isRememberFloatBallLocation:<#是否记住悬浮球的位置#> completeHandler:^(KKResult * _Nonnull result) {
+[Koala kgk_loginWithViewController:<#ur game vc#> isAllowUserAutologin:<#yes:可以自动登录；no:不允许自动登录#> floatBallInitStyle:<#FloatBallStyle#> isRememberFloatBallLocation:<#是否记住悬浮球的位置#> completeHandler:^(KKResult * _Nonnull result) {
 
     if (result.isSucc) {
         // 登录成功，data是一个user模型：KKUser
@@ -354,7 +354,7 @@ order.rolelevel = @"<#角色等级#>";
  @param order 订单模型
  @param completionHandler 支付回调
  */
-[Koala kk_settleBillWithOrder:order completionHandler:^(KKResult * _Nonnull result) {
+[Koala kgk_settleBillWithOrder:order completionHandler:^(KKResult * _Nonnull result) {
 
     // 支付结果：请以服务器的回调为准。
     NSLog(@"支付结果：%@", result);
