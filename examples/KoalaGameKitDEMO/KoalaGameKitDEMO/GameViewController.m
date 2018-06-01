@@ -88,9 +88,9 @@ static NSString *DemoSEL = @"demo_sel";
     
     KKRole *role = [KKRole new];
     role.serverid = @"100";
-    role.servername = @"servername";
+    role.servername = @"区服二号";
     role.roleid = @"1001";
-    role.rolename = @"rolename";
+    role.rolename = @"凌凌8";
     role.rolelevel = @"100";
     [Koala kgk_postRoleInfoWithModel:role completionHandler:^(KKResult * _Nonnull result) {
         
