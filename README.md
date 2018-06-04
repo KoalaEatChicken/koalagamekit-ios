@@ -16,7 +16,7 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 | appid   |    是    | 游戏id;                                                      |
 | appkey  |    是    | 签名的key;                                                   |
 | channel |    是    | 渠道名称；生成规则：游戏中文名称 首字母缩写小写 加大写“IOS”，如：qzsgIOS（全站三国IOS）。 |
-| pkver   |    否    | 非必要字段，切支付用；如果不填写，sdk会有默认的赋值；详细描述可参见初始化接口的参数描述。 |
+| pkver   |    否    | 过期参数；切支付用；cp不用传入，sdk已自行处理。              |
 
 `目录`
 
@@ -107,13 +107,16 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 #### 2.1.1 直接上代码
 
 ```objective-c
+// 配置打印
+// debug时可以开启打印，发布时要关闭打印
+#ifdef DEBUG
+    [Koala kgk_openLog:YES];
+#endif
+
 // 初始化
 [KKConfig sharedConfig].appid = @"<#appid#>"; // app id
 [KKConfig sharedConfig].channel = @"<#渠道名称#>";
 [KKConfig sharedConfig].appkey = @"<#签名的key#>";  // 签名的key
-
-// 如果无特殊要求，pkver可以不用设置（sdk本身已经有处理）
-// [KKConfig sharedConfig].pkver = @"<#版本号去掉小数点#>"; // cp出的ipa包的版本号
 
 /**
  初始化
@@ -139,28 +142,6 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 
   
 
-  > `pkver`参数的说明：
-  >
-  > 如无特殊需求，可以不用设置（`sdk`已经做了处理）；
-  >
-  > `sdk`的默认处理是：`channel`+ `_` + 版本号(去掉小数点) + `_` + `build`号(去掉小数点)；
-  >
-  > >
-  > > 如`qzsg_102_11`(全站三国，1.0.2版本，build是11或者1.1)；
-  > >
-  > > 
-  > >
-  > > 如需自定义的话，可以参考下面的生成规则： 
-  > >
-  > > 游戏的版本号字符串（去掉小数点）
-  > >
-  > >  1、相同`channel`情况下，需要保证唯一性的一个字符串（需要去掉小数点）；
-  > >  2、建议生成规则：游戏版本号去掉小数点（出包时的版本号，去掉小数点）；
-  > >
-  > > ​
-  > >
-  > > Tips: 使用上面建议的生成规则给`pkver`赋值的话，会覆盖`pkver`的默认值。
-
 ```objective-c
 
 /** 应用ID  */
@@ -169,16 +150,12 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 /** 渠道名称  */
 @property(copy, nonatomic) NSString *_Nonnull channel;
 
-/** 
-	可以为空(sdk会赋默认值)
- 0、游戏的版本号字符串（去掉小数点）
- 1、相同ver情况下，保证唯一性的一个字符串；
- 2、建议生成规则：游戏版本号去掉小数点（出包时修改后的版本号，去掉小数点）；
- */
-@property(copy, nonatomic) NSString *_Nullable pkver;
-
 /** 签名的key */
 @property(copy, nonatomic) NSString *_Nonnull appkey;
+
+/** 相同channel情况下，需要保证唯一性的一个字符串，现在sdk自己处理该参数的赋值 */
+@property(copy, nonatomic, readonly) NSString *_Nullable pkver;
+
 ```
 
 #### 2.1.3 特殊说明

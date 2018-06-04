@@ -23,16 +23,13 @@
 /** 渠道名称  */
 @property(copy, nonatomic) NSString *_Nonnull channel;
 
-/**
- 这个是游戏的一个标示，如果没有特殊要求，这里可赋空值（nil），或者不给它赋值
- 
- 游戏的版本号字符串（去掉小数点）
- 1、相同ver情况下，保证唯一性的一个字符串；
- 2、建议生成规则：游戏版本号去掉小数点（出包时修改后的版本号，去掉小数点）；
- */
-@property(copy, nonatomic) NSString *_Nullable pkver;
-
 /** 签名的key  */
 @property(copy, nonatomic) NSString *_Nonnull appkey;
+
+/** 相同channel情况下，需要保证唯一性的一个字符串 */
+@property(copy, nonatomic, readonly) NSString *_Nullable pkver;
+
+/** 🐨内部测试切支付使用的方法：正式环境中禁止使用  */
+- (void)kgk_demo_setPkver:(NSString *)pkver;
 
 @end

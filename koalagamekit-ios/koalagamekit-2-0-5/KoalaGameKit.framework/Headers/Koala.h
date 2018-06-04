@@ -18,6 +18,14 @@
 + (nonnull instancetype)getInstance;
 + (nonnull instancetype)sharedKoala;
 
+
+/**
+ 打开/关闭 内部的log
+
+ @param log 是否开启打印，默认不开启打印
+ */
++ (void)kgk_openLog:(BOOL)log;
+
 /**
  初始化
 
@@ -41,6 +49,13 @@
        isRememberFloatBallLocation:(BOOL)isRememberFloatBallLocation
                    completeHandler:(nullable KKCompletionHandler)completeHandler;
 
+/**
+ 角色上报统计
+ @param role 角色模型
+ @param completionHandler 角色上报回调
+ **/
++ (void)kgk_postRoleInfoWithModel:(nonnull KKRole *)role completionHandler:(nullable KKCompletionHandler)completionHandler;
+
 
 /**
  切换账号
@@ -60,14 +75,5 @@
  */
 + (void)kgk_settleBillWithOrder:(nonnull KKOrder *)order completionHandler:(nullable KKCompletionHandler)completionHandler;
 
-
-
-
-/**
- 角色上报统计
- @param role 角色模型
- @param completionHandler 角色上报回调
- **/
-+ (void)kgk_postRoleInfoWithModel:(nonnull KKRole *)role completionHandler:(nullable KKCompletionHandler)completionHandler;
 
 @end

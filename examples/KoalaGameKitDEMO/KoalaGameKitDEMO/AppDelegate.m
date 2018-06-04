@@ -20,6 +20,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // debug时可以开启打印，发布时要关闭打印
+#ifdef DEBUG
+    [Koala kgk_openLog:YES];
+#endif
+    
     // 初始化
     [KKConfig sharedConfig].appid = @"100000"; // app id
     [KKConfig sharedConfig].channel = @"appstore100000";
