@@ -7,7 +7,11 @@ sdk对应的服务端接入文档，请移步：  [考拉游戏平台sdk服务�
 
 > 本文档力求简洁明了。接入者所需要的所有代码及说明，在下面的文档中都有详尽介绍。
 
++ 接入前，建议检查`sdk`是否是[最新版本的`sdk`](https://github.com/KoalaEatChicken/koalagamekit-ios)~
 
+  > `sdk`可能会做有一些不定期的内部小优化和更新，但是不会修改cp接入的`api`，所以如果需要更新新版本的`sdk`，只需要替换资源文件即可哦~
+
+  
 
 + 接入前，需要从我方相关人员获得的必要参数
 
@@ -287,7 +291,7 @@ role.rolelevel = @"<#角色等级#>";
   ```objective-c
   - (void)logoutSuccessNoti:(NSNotification *)noti {
       
-      NSLog(@"CP： 登出成功了，cp在这里处理登出游戏账号等操作~");
+      NSLog(@"CP： 登出成功了（注意：sdk已经自动调出了登录框，cp不需要再次调用登录接口了），cp在这里处理登出游戏账号等操作~");
   }
   ```
 
@@ -345,20 +349,25 @@ order.rolelevel = @"<#角色等级#>";
  */
 [Koala kgk_settleBillWithOrder:order completionHandler:^(KKResult * _Nonnull result) {
 
-    // 支付结果：请以服务器的回调为准。
-    NSLog(@"支付结果：%@", result);
-    
-    if (result.isSucc) {
-        
-        NSLog(@"支付成功");
+    NSLog(@"支付结果：%@(支付结果要以服务器间的回调为准~)", result);
+    if (result.result.integerValue == KKSettleBillStatusIapSuccess) {
+
+        // 苹果支付成功：移动端已支付成功（且凭证已上传我方服务器），制服是否成功，要以服务器的回调为准
+        NSLog(@"苹果支付成功");
+    }
+    else if (result.result.integerValue == KKSettleBillStatusUserCancel) {
+
+        // 用户取消支付：用户点击了左上角的取消按钮，确定不支付
+        NSLog(@"第三方支付，用户点击了左上角的取消按钮");
     }
     else if (result.result.integerValue == KKSettleBillStatusNotConfirm) {
-            
-        // 跳去第三方支付（web）了
-        NSLog(@"跳去第三方支付了，支付结果以服务器之间的回调为准");
+
+        // 第三方支付（web）已经出结果了，但是成功失败并不确定，支付结果以服务器之间的回调为准
+        NSLog(@"第三方支付出结果了，支付结果以服务器之间的回调为准");
     }
     else {
 
+        // 出现了其他error，支付结果以服务器端回调为准哈~
         NSLog(@"支付失败：%@", result.msg);
     }
 }];
