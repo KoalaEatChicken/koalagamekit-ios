@@ -28,7 +28,6 @@
     [KKConfig sharedConfig].appid = @"100000"; // app id
     [KKConfig sharedConfig].channel = @"appstore100000";
     [KKConfig sharedConfig].appkey = @"123456";  // 签名的key
-    
     __weak typeof(self) weakSelf = self;
     [Koala kgk_initGameKitWithCompletionHandler:^(KKResult *result) {
         
@@ -41,6 +40,8 @@
             
             // 如果初始化失败，cp需要在这里重新初始化，直到初始化为止。
             NSLog(@"初始化失败：%@", result.msg);
+            NSLog(@"如果初始化失败，是不能进行登录等后续操作的~ 所以如果初始化失败，要在这里处理初始化失败事件哦~");
+            NSLog(@"注意：请确保初始化成功的前提下，再进行后续的操作！");
         }
     }];
     
@@ -131,6 +132,7 @@
         else if (result.result.integerValue == KKSettleBillStatusUserCancel) {
             
             // 用户取消支付：用户点击了左上角的取消按钮，确定不支付
+            // 这个状态过期，不再起作用，支付结果以服务器之间的回调为准
             NSLog(@"第三方支付，用户点击了左上角的取消按钮");
         }
         else if (result.result.integerValue == KKSettleBillStatusNotConfirm) {

@@ -7,11 +7,7 @@
 // 初始化 模型
 
 #import <UIKit/UIKit.h>
-
-//#define kgk_initGameKitWithCompletionHandler erwgasdsgfdsfd201
-//#define kgk_loginWithViewController gaewrewaffefase201
-//#define kgk_settleBillWithOrder safdwfefgasgagaew201
-//#define kgk_switchAccounts fadslasdfljsdfjosadfljfdsjlfds201
+#import "KKObfuscationHeader.h"
 
 @interface KKConfig : NSObject
 
