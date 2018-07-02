@@ -1,4 +1,4 @@
-# 考拉游戏平台sdk服务端接入文档 v1.0
+# 考拉游戏平台sdk服务端接入文档 v2.0
 
 
 
@@ -8,7 +8,7 @@
 
 ## 1. 登录接口
 
-> `https://kaola.ijm6.com/Api/Member/CheckLogin`
+> `https://api.sdk.gzkaola.com/Api/Member/CheckLogin`
 >
 > 用于用户在SDK端登录之后，CP方与我方服务端异步交互验证手段，确保用户合法性。
 
